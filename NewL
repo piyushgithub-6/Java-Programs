@@ -1,0 +1,44 @@
+import java.util.Random;
+
+public class NewLudo {
+	
+	public static int active=0;
+	public static int position=-1;
+	public static int latestPosition=0;
+	
+	public int diceRoll() {
+		Random r =new Random();
+		int res=r.nextInt(6);
+		return res;
+	}
+	
+	
+	public void makeActive() {
+		NewLudo.active=1;
+		NewLudo.position=0;
+	}
+
+	public void currentPosition(int v){
+		NewLudo.latestPosition+=v;	
+		System.out.println(NewLudo.latestPosition);
+	}
+	
+
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		int value=0;
+		NewLudo nl=new NewLudo();
+		
+		value = nl.diceRoll();
+		if(value==6 && NewLudo.position==-1)
+			nl.makeActive();
+		while(NewLudo.active==1 && NewLudo.latestPosition<=52) {
+			int val=0;
+			val=nl.diceRoll();
+			nl.currentPosition(val);
+		}
+		
+		
+	}
+
+}
